@@ -1,13 +1,15 @@
-import os
+import os, sys
 
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, '..', '..', 'public')
+
+sys.path.append(os.path.join(PROJECT_DIR, 'apps'),)
 
 DEBUG = False
 TEMPLATE_DEBUG = False
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Vasyl Dizhak', 'dijakroot@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -90,7 +92,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django_extensions',
-    'south'
+    'south',
+    'profiles',
+    'courses',
 )
 
 LOGGING = {
