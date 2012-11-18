@@ -9,3 +9,5 @@ python-memcached
 
 PIL
 sorl-thumbnail
+
+django-tastypie
