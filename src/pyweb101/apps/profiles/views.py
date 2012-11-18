@@ -9,3 +9,4 @@ class LandingPageHypothesisView(TemplateView):
          context = super(LandingPageHypothesisView, self).get_context_data(**kwargs)
          context['registered'] = LandingHypothesisRegistration.objects.all().count()
          return context
+
