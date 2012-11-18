@@ -1,5 +1,7 @@
 from tastypie.resources import ModelResource
 from tastypie.serializers import Serializer
+from tastypie.authentication import BasicAuthentication, Authentication
+from tastypie.authorization import DjangoAuthorization, Authorization
 
 from profiles.models import LandingHypothesisRegistration
 
@@ -7,6 +9,8 @@ from profiles.models import LandingHypothesisRegistration
 class LHResource(ModelResource):
     class Meta:
         queryset = LandingHypothesisRegistration.objects.all()
-        allowed_methods = ['post', 'get']
+        allowed_methods = ['post',]
         resource_name = 'langinghypothesis'
         serializer = Serializer(formats=['json',])
+        authentication = Authentication()
+        authorization = Authorization()
