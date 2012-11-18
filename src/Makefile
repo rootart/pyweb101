@@ -8,7 +8,7 @@ run:
 
 test:
 	python manage.py test
-	
+
 clean_pyc:
 	find . -name \*.pyc -delete
 	find . -name \*.pyo -delete
