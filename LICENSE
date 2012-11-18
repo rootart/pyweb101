@@ -1,29 +1,7 @@
-# Python for web development course website
+Copyright (c) 2012 Vasyl Dizhak.
 
-## Build status
-[![Build Status](https://secure.travis-ci.org/rootart/pyweb101.png?branch=master)](https://travis-ci.org/rootart/pyweb101)
-
-## Philosophy
-
-## Dependencies
-- [Python](http://python.org) 2.6 or 2.8
-- [Django](http://djangoproject.com) >=1.4.2
-- [South](http://south.aeracode.org/)
-- [Psycopg2](http://www.initd.org/psycopg/)
-
-
-## Authors
-
-- [Vasyl Dizhak](http://github.com/rootart)
-- [Roman Gaponov](http://github.com/rgaponov)
-
-
-## Official website
-
-<http://pythonweb-class.org>
-
-
-## License CC BY-NC-SA
+Creative Commons
+Attribution-NonCommercial-ShareAlike
 
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
 
