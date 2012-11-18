@@ -10,4 +10,4 @@ python-memcached
 PIL
 sorl-thumbnail
 
-django-tastypie
+git+https://github.com/toastdriven/django-tastypie.git#egg=tastypie
