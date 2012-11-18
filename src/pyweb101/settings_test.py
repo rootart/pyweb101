@@ -3,7 +3,7 @@ from settings import *
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-LOCAL_INSTALLED_APPS = ('debug_toolbar', 'django_extensions', 'django_coverage', 'django_nose')
+LOCAL_INSTALLED_APPS = ('django_coverage', 'django_nose')
 INSTALLED_APPS += LOCAL_INSTALLED_APPS
 
 SOUTH_TESTS_MIGRATE = False
