@@ -5,5 +5,5 @@ python:
 install:
   - pip install -q -e ../requirements/requirements-test.txt --use-mirrors
 script:
-  - python manage.py test
+  - python manage.py test --settings=pyweb101.settings_test
 
