@@ -11,3 +11,5 @@ PIL
 sorl-thumbnail
 
 git+https://github.com/toastdriven/django-tastypie.git#egg=tastypie
+
+django-uuidfield-2
