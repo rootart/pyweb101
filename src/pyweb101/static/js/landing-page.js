@@ -1,10 +1,16 @@
 define(['jquery', 'underscore', 'backbone'],
     function(){
         var InputForm = Backbone.Model.extend({
+            url: '/api/langinghypothesis/',
             defaults: {
-                'placeholder': 'Your e-mail',
                 'email': ''
-            }
+            },
+            validate: function(attrs) {
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                if (reg.test(attrs.email) == false){
+                    return 'Invalid email';
+                }
+             }
         });
 
         var InputView = Backbone.View.extend({
@@ -18,12 +24,16 @@ define(['jquery', 'underscore', 'backbone'],
                 "blur input[type=text]": "validateData",
             },
             sendData: function(){
-                // alert('ok');
                 this.model.set('email', $('input[type=text]').val());
+                if (this.model.isValid()){
+                    this.model.save();
+                }
+
                 return false;
             },
             validateData: function(){
-                alert('changing');
+                // TODO write validation method, dicide if it should be in model attribute change or 
+                // in view
                 return false;
             
             }

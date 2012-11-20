@@ -14,3 +14,7 @@ class LHResource(ModelResource):
         serializer = Serializer(formats=['json',])
         authentication = Authentication()
         authorization = Authorization()
+
+    def obj_create(self, bundle, request=None, **kwargs):
+        super(LHResource, self).obj_create(bundle, request, **kwargs)
+            
