@@ -2,6 +2,8 @@ from django.test import TestCase
 from  django.core.urlresolvers import reverse
 from tastypie.test import ResourceTestCase
 
+import datetime
+
 from profiles.models import LandingHypothesisRegistration
 
 
@@ -48,3 +50,40 @@ class LandingHypthesisAPITestCase(ResourceTestCase):
 
     def test_not_allowed_requests(self):
         self.assertHttpMethodNotAllowed(self.api_client.get(self.LH_ENDPOINT))
+
+    def test_post_lh_extended_registration(self):
+        self.post_data = {
+            'email': self.TEST_EMAIL,
+            'first_name': 'John',
+            'last_name': 'Doe',
+            'date_of_birth': '01.01.1991',
+            'university': 'KPI',
+            'faculty': 'FMF',
+            'major': 'math'
+        }
+        self.assertEquals(LandingHypothesisRegistration.objects.count(), 0)
+        self.assertHttpCreated(self.api_client.post(self.LH_ENDPOINT,
+            format='json', data=self.post_data))
+        self.assertEqual(LandingHypothesisRegistration.objects.count(), 1)
+        entry = LandingHypothesisRegistration.objects.all()[0]
+        self.assertEqual(entry.email,
+            self.TEST_EMAIL
+            )
+        self.assertEqual(entry.major, 'math')
+        self.assertEqual(entry.first_name, 'John')
+        self.assertEqual(entry.date_of_birth, datetime.date(1991, 1, 1))
+
+    def test_throttling(self):
+        self.assertEquals(LandingHypothesisRegistration.objects.count(), 0)
+        for item in xrange(5):
+            data = {
+                'email': '%s@gmail.com' % item,
+            }
+            print item
+            self.assertHttpCreated(self.api_client.post(self.LH_ENDPOINT,
+                format='json', data=data, **{'REMOTE_ADDR': '192.168.1.1'})
+            )
+        self.assertEquals(LandingHypothesisRegistration.objects.count(), 5)
+        self.assertHttpTooManyRequests(self.api_client.post(self.LH_ENDPOINT,
+            format='json', data={'email': '6@gmail.com'}, **{'REMOTE_ADDR': '192.168.1.1'})
+        )
