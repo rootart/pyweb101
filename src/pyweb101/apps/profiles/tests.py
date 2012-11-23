@@ -24,6 +24,9 @@ class LangindPageHypothesisTestCase(TestCase):
         response = self.client.post(self.url)
         self.assertEquals(response.status_code, 405)
 
+    def test_context(self):
+        self.assertEquals(self.response.context['registered'], 0)
+
 
 class LandingHypthesisAPITestCase(ResourceTestCase):
     def setUp(self, *args, **kwargs):
