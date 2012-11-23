@@ -10,6 +10,7 @@
 - [Django](http://djangoproject.com) >=1.4.2
 - [South](http://south.aeracode.org/)
 - [Psycopg2](http://www.initd.org/psycopg/)
+- [Django-tastypie](https://github.com/toastdriven/django-tastypie) 0.9.12-alpha 
 
 
 ## Authors
