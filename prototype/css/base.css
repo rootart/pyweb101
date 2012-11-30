@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope:400);
+
 
 @font-face 
 {
@@ -27,6 +29,33 @@ h1, h2, h3 {font-weight:300; text-shadow: 1px 1px 0 #FFFFFF;}
 
 
 #global { margin:0; width:100%; min-width:100%; background: transparent url('../images/bg.png'); }
+
+
+span.hand-made {  
+	color: #999;
+    font-family: "Annie Use Your Telescope";
+    font-size: 1.5em;
+    letter-spacing: 0.025em;
+    position: absolute;
+    text-shadow: 1px 1px 0 #fff;
+    word-spacing: -0.1em;
+    z-index: 10;
+	line-height: 1em;
+}
+
+span.sub1 {
+right: 0;
+    top: -35px;
+}
+
+span.sub2 {    right: 45px;
+    top: 280px;
+}
+span.sub3 {
+left:0;
+top:165px;
+width:165px
+}
 
 #content a {color:#66AF33; text-shadow: 1px 1px 0 #FFFFFF;}
 #content a:hover {color:#4F8828}
@@ -404,4 +433,5 @@ ul.homeServ li span {font-size:400%; width:85%}
 ul.homeServ li b {bottom: -8px; left: 34%}
 #header-block form.big-form p:nth-child(6) input[type="text"] {width:94%;  margin-bottom: 1em;}
 #header-block form.big-form button {margin-top:-1em}
+span.hand-made {display:none}
 }
