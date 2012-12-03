@@ -44,7 +44,7 @@ span.hand-made {
 }
 
 span.sub1 {
-right: 0;
+right: 25px;
     top: -35px;
 }
 
@@ -52,7 +52,7 @@ span.sub2 {    right: 45px;
     top: 280px;
 }
 span.sub3 {
-left:0;
+left:25px;
 top:165px;
 width:165px
 }
@@ -411,6 +411,10 @@ ul.homeServ li b {left:39%}
 .big-data span {padding:0px 0 3% 9%}
 #header-block form.big-form p:nth-child(6) input[type="text"] {width:94%;  margin-bottom: 1em;}
 #header-block form.big-form button {margin-top:-1em}
+span.hand-made {font-size:1.3em}
+span.sub1 {right: 10px; top: -15px;}
+span.sub2 {right: 15px; top: 305px;}
+span.sub3 { left: 15px; top: 60px; width: 100px;}
 }
 
 
