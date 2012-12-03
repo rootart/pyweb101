@@ -26,6 +26,7 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
 			render: function(){
 				if (!this.model.isNew()){
 					this.$el.html('<p>Thanks we will contact you soon!</p>');
+					this.$el.addClass('success');
 				}
 				if (!this.model.isValid()){
 					this.$('input[type=text]').css({'color': 'red'});
