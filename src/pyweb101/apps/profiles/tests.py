@@ -1,8 +1,10 @@
 from django.test import TestCase
-from  django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 from tastypie.test import ResourceTestCase
+from tastypie.test import TestApiClient
 
 import datetime
+import json
 
 from profiles.models import LandingHypothesisRegistration
 
@@ -20,7 +22,7 @@ class LangindPageHypothesisTestCase(TestCase):
 
     def test_static_matching(self):
         self.assertIn('require-jquery.js', self.response.content)
-        self.assertIn('app.css', self.response.content)
+        self.assertIn('base.css', self.response.content)
 
     def test_post_request(self):
         response = self.client.post(self.url)
@@ -62,8 +64,19 @@ class LandingHypthesisAPITestCase(ResourceTestCase):
             'major': 'math'
         }
         self.assertEquals(LandingHypothesisRegistration.objects.count(), 0)
-        self.assertHttpCreated(self.api_client.post(self.LH_ENDPOINT,
-            format='json', data=self.post_data))
+
+
+        # test correct Location header to work with backbone-tastypie
+        response = self.api_client.post(self.LH_ENDPOINT, format='json',
+            data=self.post_data
+        )
+        self.assertTrue(response.has_header('Location'))
+        location = response.get('Location')
+        entry_response = self.api_client.get(location, format='json')
+        entry_data = json.loads(entry_response.content)
+        self.assertEqual(entry_data['email'], self.TEST_EMAIL)
+
+        self.assertHttpCreated(response)
         self.assertEqual(LandingHypothesisRegistration.objects.count(), 1)
         entry = LandingHypothesisRegistration.objects.all()[0]
         self.assertEqual(entry.email,
