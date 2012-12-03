@@ -16,10 +16,9 @@
 		<div id="global">
 			<div id="header">
 				<ul>
-					<li><a href="" title="">About</a></li>
-					<li><a href="" title="">Program</a></li>
-					<li><a href="" title="">Schedule</a></li>
-					<li><a href="" title="">Subscribe</a></li>
+					<li><a href="#program" title="{% trans "Program" %}">{% trans "Program" %}</a></li>
+					<li><a href="" title="{% trans "Schedule" %}">{% trans "Schedule" %}</a></li>
+					<li><a href="mailto:help@pythonweb-class.org" title="{% trans "Contact us" %}">{% trans "Contact us" %}</a></li>
 				</ul>
 				<div class="socBtn">
 					{# <div data-font="arial" data-show-faces="true" data-width="450" data-layout="button_count" data-send="false" data-href="http://recco.me/" class="fb-like fb_edge_widget_with_comment fb_iframe_widget" fb-xfbml-state="rendered"><span style="height: 21px; width: 73px;"> #}
@@ -33,21 +32,21 @@
 			</div>
 			<div id="content">
 							<div id="header-block" class="special">
-								<h1>Python from zerØ to web development</h1>
+								<h1>{% trans "Python from zerø to web development" %}</h1>
 								<p>
-									Class offered here is designed to help you mastering web development stack starting from python basics, like working with string and dates and finishing with deploying real world applications. We prefer having on site lectures once a week, thus this may be replaced with recorded webinars. Please, look on the main study categories below.
+									Class offered here is designed to help you mastering web development stack starting from python basics, like working with string and dates and finishing with deploying real world applications. We prefer having on site lectures once a week, thus this may be replaced with recorded webinars. Please, look on the main study categories below and subscribe to get in touch.
 								</p>
 								<form class="email-form">
 									<div>
-										<input name="email" type="text" placeholder="Your e-mail">
-										<button type="submit" value="Subscribe">Subscribe</button>
+										<input name="email" type="text" placeholder="{% trans "Your e-mail" %}">
+										<button type="submit">{% trans "Subscribe" %}</button>
 									</div>
-										<span href="" class="hand-made sub2">Join us right now!</span>
+										<span href="" class="hand-made sub2">{% trans "Join us right now!" %}</span>
 								</form>
-										<span href="" class="hand-made sub1">Tell this to your friends!</span>
-										<span href="" class="hand-made sub3">Become a real python geek!</span>							
+										<span href="" class="hand-made sub1">{% trans "Tell this to your friends!" %}</span>
+										<span href="" class="hand-made sub3">{% trans "Become a real python geek!" %}</span>							
 							</div>
-							<div class="home-block">
+							<div class="home-block" id="program">
 								<div class="home-block-content">
 									<ul class="homeServ">
 										<li class="act"> <a href="#" title="Python basics"><span> &nbsp; </span></a>
