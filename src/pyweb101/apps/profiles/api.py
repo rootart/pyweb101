@@ -11,6 +11,7 @@ class LHResource(ModelResource):
     class Meta:
         queryset = LandingHypothesisRegistration.objects.all()
         allowed_methods = ['post',]
+        detail_allowed_methods = ['get', ]
         resource_name = 'langinghypothesis'
         serializer = Serializer(formats=['json',])
         authentication = Authentication()
@@ -19,7 +20,6 @@ class LHResource(ModelResource):
             throttle_at=5, timeframe=60,
             expiration=24*60*60
         )
-
-    def obj_create(self, bundle, request=None, **kwargs):
-        super(LHResource, self).obj_create(bundle, request, **kwargs)
+        always_return_data = True
+        detail_uri_name = 'uuid'
             

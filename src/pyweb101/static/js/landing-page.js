@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone'],
+define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
     function(){
         var InputForm = Backbone.Model.extend({
             url: '/api/langinghypothesis/',
@@ -17,26 +17,35 @@ define(['jquery', 'underscore', 'backbone'],
             el: '.email-form',
             model: InputForm,
             initialize: function(){
-        
+				this.model.on('change', this.render, this);
             },
             events: {
                 "click input[type=submit]": "sendData",
                 "blur input[type=text]": "validateData",
             },
+			render: function(){
+				if (!this.model.isNew()){
+					this.$el.html(this.model.get('email'));
+				}
+				if (!this.model.isValid()){
+					this.$('input[type=text]').css({'color': 'red'});
+				}
+				else {
+					this.$('input[type=text]').css({'color': '#BBB'});
+				}
+			},
             sendData: function(){
                 this.model.set('email', $('input[type=text]').val());
-                if (this.model.isValid()){
+                if (this.model.isValid() && this.model.isNew()){
                     this.model.save();
                 }
 
                 return false;
             },
-            validateData: function(){
-                // TODO write validation method, dicide if it should be in model attribute change or 
-                // in view
-                return false;
-            
-            }
+			validateData: function(){
+				this.model.set('email', $('input[type=text]').val());
+				this.render();
+			}
         });
         model = new InputForm();
         item = new InputView({model: model});
