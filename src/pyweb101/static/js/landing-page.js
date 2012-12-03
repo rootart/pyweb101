@@ -20,12 +20,12 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
 				this.model.on('change', this.render, this);
             },
             events: {
-                "click input[type=submit]": "sendData",
-                "blur input[type=text]": "validateData",
+                "click button[type=submit]": "sendData",
+                "blur input[name=email]": "validateData",
             },
 			render: function(){
 				if (!this.model.isNew()){
-					this.$el.html(this.model.get('email'));
+					this.$el.html('<p>Thanks we will contact you soon!</p>');
 				}
 				if (!this.model.isValid()){
 					this.$('input[type=text]').css({'color': 'red'});
@@ -47,7 +47,7 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
 				this.render();
 			}
         });
-        model = new InputForm();
-        item = new InputView({model: model});
+        var model = new InputForm();
+        var item = new InputView({model: model});
     }
 );
