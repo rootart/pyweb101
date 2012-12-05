@@ -3,8 +3,10 @@ from tastypie.serializers import Serializer
 from tastypie.authentication import BasicAuthentication, Authentication
 from tastypie.authorization import DjangoAuthorization, Authorization
 from tastypie.throttle import CacheThrottle, CacheDBThrottle
+from tastypie.validation import FormValidation
 
 from profiles.models import LandingHypothesisRegistration
+from profiles.forms import LHRForm
 
 
 class LHResource(ModelResource):
@@ -22,4 +24,5 @@ class LHResource(ModelResource):
         )
         always_return_data = True
         detail_uri_name = 'uuid'
+        validation = FormValidation(form_class=LHRForm)
             
