@@ -54,7 +54,51 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
                 this.render();
             }
         });
-        model = new InputForm();
-        item = new InputView({model: model});
+		
+		
+
+		// LandingPage
+		LandingPageApp =  new (Backbone.Router.extend({
+			routes: {
+				 '': 'index',
+				 'section/:section': 'renderSection'
+			 },
+			 initialize: function(){
+ 		        var model = new InputForm();
+ 		        var item = new InputView({model: model});
+				
+				// find all sections from dom and populate collection with them
+				var sectionDOMs = $('.homeServ > li');
+				sectionDOMs.each(function(index){
+					var element = $(sectionDOMs[index])
+					if (element.data('section')){
+						// section = new SectionModel({'section': element.data('section')});
+					}
+				});
+				
+				// Prevent default actions clicking on section links
+				// TODO update with view events
+				var app = this;
+			    $(document).on('click', 'a:not([data-bypass])', function (evt) {
+
+			       var href = $(this).attr('href');
+			       var protocol = this.protocol + '//';
+
+			       if (href.slice(protocol.length) !== protocol) {
+			         evt.preventDefault();
+			         app.navigate(href, true);
+			       }
+			     }); //end
+	
+			 },
+			 start: function(){
+			 	Backbone.history.start({pushState: true});
+			 },
+			 index: function(){},
+			 renderSection: function(section){
+				 alert(section);
+			 },
+		})); //end
+
     }
 );
