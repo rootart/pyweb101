@@ -54,8 +54,17 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
                 this.render();
             }
         });
-		
-		
+
+        var SectionModel = Backbone.Model.extend({
+            defaults: {
+                'section': '',
+                'title': ''
+            }
+        })
+
+        var SectionCollection = Backbone.Collection.extend({
+            model: SectionModel
+        })
 
 		// LandingPage
 		LandingPageApp =  new (Backbone.Router.extend({
@@ -66,16 +75,19 @@ define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
 			 initialize: function(){
  		        var model = new InputForm();
  		        var item = new InputView({model: model});
-				
+
+                var collection = new SectionCollection();
 				// find all sections from dom and populate collection with them
 				var sectionDOMs = $('.homeServ > li');
 				sectionDOMs.each(function(index){
 					var element = $(sectionDOMs[index])
 					if (element.data('section')){
-						// section = new SectionModel({'section': element.data('section')});
+                        var section = new SectionModel({'section': element.data('section')});
+                        collection.add(section);
 					}
 				});
-				
+                console.log(collection);
+
 				// Prevent default actions clicking on section links
 				// TODO update with view events
 				var app = this;
