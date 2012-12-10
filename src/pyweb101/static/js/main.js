@@ -1,3 +1,3 @@
-require(['jquery', 'underscore', 'backbone', '/static/js/landing-page.js'], function($) {
+require(['underscore', 'backbone', 'landing-page'], function($) {
 	LandingPageApp.start();
 });

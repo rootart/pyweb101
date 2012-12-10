@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'backbone-tastypie'],
+define(['underscore', 'backbone', 'backbone-tastypie'],
     function(){
         var InputForm = Backbone.Model.extend({
             url: '/api/langinghypothesis/',
