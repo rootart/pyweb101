@@ -420,12 +420,27 @@ border-radius:100px;
     width: 100%;
 }
 .speakers-list li h2 {font-size:1.5em; color:#4F8828 }
-.speakers-list li b {padding-left:10px; color:#aaa; font-size:0.55em; font-weight:normal}
+.speakers-list li b {padding-left:10px; color:#aaa; font-size:0.6em; font-weight:normal}
 .speakers-list li p {color:#333; font-size:0.9em}
 
 .speakers-list li:first-child {border-top:none; padding-top:0}
 .speakers-list li:last-child {border-bottom:none;}
 
+
+
+.speakers-list.partners li {display:inline-block; vertical-align:top; float:none; width:30%; margin-right:4.5%; border:0; padding:0}
+.speakers-list.partners li:nth-child(3n) {margin-right:0}
+.speakers-list.partners li p a {display:block; font-size:0.95em; padding-top:5px}
+.speakers-list.partners span {margin:0 auto; float:none}
+.speakers-list.partners img {
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+-ms-border-radius: 0;
+-o-border-radius:0;
+border-radius:0;
+width: auto;
+    height: 50px;	
+}
 
 .inner .home-block-content {padding-top:1% !important; padding-bottom:1.5% !important; margin-bottom:1.5%}
 #content .inner h3 a {font-size:4em; color:#fff; text-shadow:none; letter-spsacing: 0.025em;  line-height: 1em;}
